@@ -9,18 +9,22 @@
   "scripts": {
     "eslint": "eslint . --cache",
     "test": "ava",
-    "ava": "ava"
+    "ava": "ava",
+    "coverage": "nyc npm test",
+    "coverage-report": "nyc report --reporter=text-lcov | coveralls"
   },
   "engines": {
     "node": ">=9"
   },
   "devDependencies": {
     "ava": "^0.25.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-eslint": "^4.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^2.6.0",
+    "nyc": "^11.7.1",
     "prettier": "^1.12.1"
   },
   "dependencies": {}
