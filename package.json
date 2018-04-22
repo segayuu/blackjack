@@ -10,6 +10,7 @@
     "eslint": "eslint . --cache",
     "test": "ava",
     "ava": "ava",
+    "precommit": "lint-staged",
     "coverage": "nyc npm test",
     "coverage-report": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -24,6 +25,8 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.4",
     "nyc": "^11.7.1",
     "prettier": "^1.12.1"
   },
