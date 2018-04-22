@@ -7,7 +7,7 @@
   "author": "segayuu <segayuu@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "eslint": "eslint .",
+    "eslint": "eslint . --cache",
     "test": "ava",
     "ava": "ava"
   },

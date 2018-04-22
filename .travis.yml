@@ -5,6 +5,8 @@ node_js:
 
 cache:
   yarn: true
+  directories:
+    - ".eslintcache"
 
 install:
   - yarn install
