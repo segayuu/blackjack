@@ -1,3 +1,5 @@
 import test from "ava";
 
-test.todo("test");
+test("test", t => {
+    t.pass();
+});
