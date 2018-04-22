@@ -1,0 +1,11 @@
+{
+    "rules": {
+        "node/no-unpublished-require": "off",
+        "node/no-unsupported-features": ["error", {
+            "ignores": ["modules"]
+        }]
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}
