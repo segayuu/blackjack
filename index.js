@@ -1,3 +1,5 @@
 "use strict";
 
-exports.test = str => str;
+const Card = require("./lib/Card");
+
+exports.Card = Card;
