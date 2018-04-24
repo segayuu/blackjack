@@ -1,5 +1,6 @@
 const test = require("ava");
 const { Card } = require("../lib/Card");
+const { CardDeck } = require("../lib/CardDeck");
 
 test("Card - constructor", t => {
     const suit = "spade";
@@ -66,4 +67,15 @@ test("Card - constructor: number is K", t => {
     const card = new Card(suit, "K");
 
     t.deepEqual(card.number, 13);
+});
+
+test("Card - type", t => {
+    const deck = new CardDeck();
+    const suits = ["spade", "slub", "diamond", "heart"];
+    let card;
+
+    while ((card = deck.pull()) !== (void 0)) {
+        t.true(Number.isSafeInteger(card.number));
+        t.true(suits.includes(card.suit));
+    }
 });

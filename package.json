@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "eslint": "eslint . --cache",
-    "test": "ava",
-    "ava": "ava",
+    "test": "ava test/index.js",
+    "ava": "ava test/index.js",
     "precommit": "lint-staged",
     "coverage": "nyc npm test",
     "coverage-report": "nyc report --reporter=text-lcov | coveralls"

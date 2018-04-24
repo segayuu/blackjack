@@ -29,6 +29,7 @@
             "error",
             "always"
         ],
-        "valid-jsdoc": "warn"
+        "valid-jsdoc": "warn",
+        "func-style": ["error", "declaration", { "allowArrowFunctions": true }]
     }
 }
