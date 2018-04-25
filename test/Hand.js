@@ -11,7 +11,25 @@ test("Hand#push()", t => {
     t.pass();
 });
 
-test.todo("Hand#isBurst()");
+test.todo("Hand#first()");
+test("Hand#total", t => {
+    const hand = new Hand();
+
+    hand.push(new Card("spade", "J"));
+    t.deepEqual(hand.total, 10);
+    hand.push(new Card("spade", 1));
+    t.deepEqual(hand.total, 11);
+});
+test("Hand#isBurst", t => {
+    const hand = new Hand();
+
+    hand.push(new Card("spade", 10));
+    t.false(hand.isBurst);
+    hand.push(new Card("spade", 2));
+    t.false(hand.isBurst);
+    hand.push(new Card("heart", 10));
+    t.true(hand.isBurst);
+});
 test.todo("Hand#list()");
 test.todo("Hand#[@@iterator]");
 test.todo("Hand#clear()");
