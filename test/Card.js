@@ -1,13 +1,11 @@
 const test = require("ava");
 const { Card } = require("../lib/Card");
-const { CardDeck } = require("../lib/CardDeck");
 
 test("Card - constructor", t => {
-    const suit = "spade";
-    const $number = 1;
-    const result = new Card(suit, $number);
+    const card = new Card("spade", 1);
 
-    t.deepEqual(result.number, 1);
+    t.deepEqual(card.suit, "spade");
+    t.deepEqual(card.number, 1);
 });
 
 test("Card - constructor: suit required", t => {
@@ -69,13 +67,9 @@ test("Card - constructor: number is K", t => {
     t.deepEqual(card.number, 13);
 });
 
-test("Card - type", t => {
-    const deck = new CardDeck();
-    const suits = ["spade", "slub", "diamond", "heart"];
-    let card;
+test("Card#[@@toStringTag]", t => {
+    const card = new Card("spade", 1);
+    const { toString } = Object.prototype;
 
-    while ((card = deck.pull()) !== (void 0)) {
-        t.true(Number.isSafeInteger(card.number));
-        t.true(suits.includes(card.suit));
-    }
+    t.deepEqual(toString.call(card), "[object Card]");
 });
