@@ -1,6 +1,5 @@
 const test = require("ava");
 const { CardDeck } = require("../lib/CardDeck");
-const { notStrictEqual } = require("assert");
 
 test("CardDeck#reset() - all includes", t => {
     const deck = new CardDeck();
@@ -30,7 +29,7 @@ test("CardDeck#reset() - isShuffle", t => {
 
 test("CardDeck#count", t => {
     const deck = new CardDeck();
-    let sum = 52;
+    let sum = deck.count;
 
     while (deck.count) {
         deck.pull();
@@ -48,9 +47,8 @@ test("CardDeck#pull()", t => {
     while (typeof (card = deck.pull()) === "object") {
         t.deepEqual(toString.call(card), "[object Card]");
     }
-
-    t.deepEqual(deck.pull(), void 0);
     t.deepEqual(deck.count, 0);
+    t.deepEqual(deck.pull(), void 0);
 });
 
 test("CardDeck#[@@iterator]()", t => {
@@ -71,28 +69,29 @@ test("CardDeck#next()", t => {
     while (deck.count) {
         const { done, value } = deck.next();
 
-        t.deepEqual(done, false);
+        t.false(done);
         t.deepEqual(toString.call(value), "[object Card]");
     }
 
     const { done, value } = deck.next();
 
-    t.deepEqual(done, true);
+    t.true(done);
     t.deepEqual(value, void 0);
     t.deepEqual(deck.count, 0);
+    t.deepEqual(deck.pull(), void 0);
 });
 
 test("CardDeck#toArray()", t => {
     const deck = new CardDeck();
     const array = deck.toArray();
 
-    notStrictEqual(deck.collection, array);
+    t.true(deck.collection !== array);
     t.deepEqual(deck.collection, array);
 });
 
 test("CardDeck#values()", t => {
     const deck = new CardDeck();
-    const count = deck.count;
+    const { count } = deck;
     const array = deck.toArray();
     let i = 0;
 
