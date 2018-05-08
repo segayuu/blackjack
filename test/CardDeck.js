@@ -24,6 +24,7 @@ test("CardDeck#reset() - isShuffle", t => {
     deck.reset();
     const results = deck.toArray();
 
+    t.true(deck.count !== 0);
     t.notDeepEqual(copy, results, "The order of the cards has not been changed.");
 });
 
@@ -83,21 +84,22 @@ test("CardDeck#next()", t => {
 
 test("CardDeck#toArray()", t => {
     const deck = new CardDeck();
+    const { count } = deck;
     const array = deck.toArray();
 
-    t.true(deck.collection !== array);
-    t.deepEqual(deck.collection, array);
+    t.deepEqual(deck.count, count);
+
+    const result = Array.from(deck);
+
+    t.deepEqual(result, array);
 });
 
 test("CardDeck#values()", t => {
     const deck = new CardDeck();
     const { count } = deck;
     const array = deck.toArray();
-    let i = 0;
+    const result = Array.from(deck.values());
 
-    for (const card of deck.values()) {
-        t.deepEqual(card, array[i++]);
-    }
-
+    t.deepEqual(result, array);
     t.deepEqual(deck.count, count);
 });
