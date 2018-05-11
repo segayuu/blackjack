@@ -1,5 +1,13 @@
 const test = require("ava");
+const { Card } = require("../lib/Card");
 const { CardDeck } = require("../lib/CardDeck");
+
+test("CardDeck.allCards", t => {
+    const array = require("../lib/fullCardList.json").map(card => Card.create(card));
+
+    t.deepEqual(CardDeck.allCards, array);
+    t.deepEqual(CardDeck.allCards, array);
+});
 
 test("CardDeck#pull()", t => {
     const deck = new CardDeck();
