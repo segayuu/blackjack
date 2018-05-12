@@ -73,3 +73,18 @@ test("Card#[@@toStringTag]", t => {
 
     t.deepEqual(toString.call(card), "[object Card]");
 });
+
+test("Card#valueOf", t => {
+    const card1 = new Card("spade", "K");
+    const card2 = new Card("slub", 1);
+    const card3 = new Card("diamond", 3);
+    const card4 = new Card("heart", "Q");
+
+    t.true(Number(card1) === Number(card1));
+    t.true(Number(card2) === Number(card2));
+    t.true(Number(card3) === Number(card3));
+    t.true(Number(card4) === Number(card4));
+    t.true(Number(card1) < Number(card2));
+    t.true(Number(card2) < Number(card3));
+    t.true(Number(card3) < Number(card4));
+});
