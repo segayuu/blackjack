@@ -30,5 +30,7 @@
     "nyc": "^11.7.1",
     "prettier": "^1.12.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "promptly": "^3.0.3"
+  }
 }
