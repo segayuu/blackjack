@@ -8,16 +8,24 @@
   "license": "MIT",
   "scripts": {
     "eslint": "eslint . --cache",
-    "test": "ava test/index.js",
+    "test": "npm run ava",
     "ava": "ava test/index.js",
     "precommit": "lint-staged",
     "coverage": "nyc npm test",
-    "coverage-report": "nyc report --reporter=text-lcov | coveralls"
+    "coverage-report": "nyc report --reporter=text-lcov | coveralls",
+    "tsc": "tsc",
+    "babel": "babel src -d dist --extensions \".ts\"",
+    "build": "npm run tsc && npm run babel && npm run test"
   },
   "engines": {
     "node": ">=9"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0",
     "ava": "^0.25.0",
     "coveralls": "^3.0.0",
     "eslint": "^4.19.1",
@@ -28,7 +36,8 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.0.4",
     "nyc": "^11.7.1",
-    "prettier": "^1.12.1"
+    "prettier": "^1.12.1",
+    "typescript": "^3.0.1"
   },
   "dependencies": {}
 }

@@ -1,5 +1,5 @@
 const test = require("ava");
-const { Card } = require("../lib/Card");
+const { Card } = require("../dist/Card");
 
 test("Card - constructor", t => {
     const card = new Card("spade", 1);
@@ -10,12 +10,6 @@ test("Card - constructor", t => {
 
 test("Card - constructor: suit required", t => {
     t.throws(() => new Card(), "suit required");
-});
-
-test("Card - constructor: not suit error", t => {
-    const input = "error";
-
-    t.throws(() => new Card(input), `${input} not suits!`);
 });
 
 test("Card - constructor: number required", t => {

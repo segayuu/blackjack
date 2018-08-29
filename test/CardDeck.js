@@ -1,9 +1,9 @@
 const test = require("ava");
-const { Card } = require("../lib/Card");
-const { CardDeck } = require("../lib/CardDeck");
+const { Card } = require("../dist/Card");
+const { CardDeck } = require("../dist/CardDeck");
 
 test("CardDeck.allCards", t => {
-    const array = require("../lib/fullCardList.json").map(card => Card.create(card));
+    const array = require("../dist/fullCardList").default.map(card => Card.create(card));
 
     t.deepEqual(CardDeck.allCards, array);
     t.deepEqual(CardDeck.allCards, array);

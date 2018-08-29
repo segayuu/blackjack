@@ -1,6 +1,6 @@
 const test = require("ava");
-const { Card } = require("../lib/Card");
-const { Hand } = require("../lib/Hand");
+const { Card } = require("../dist/Card");
+const { Hand } = require("../dist/Hand");
 
 test("Hand#push()", t => {
     const card = new Card("spade", 1);

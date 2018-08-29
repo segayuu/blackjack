@@ -1,15 +1,9 @@
 "use strict";
+import Card from "./Card";
 
-class Hand {
-    constructor() {
-        /** @type {Card[]} */
-        this._collection = [];
-    }
-    /**
-     * @param {Card} card
-     * @returns {void}
-     */
-    push(card) {
+export class Hand implements Iterable<Card> {
+    _collection: Card[] = [];
+    push(card: Card) {
         this._collection.push(card);
     }
     list() {
@@ -23,4 +17,4 @@ class Hand {
     }
 }
 
-exports.Hand = Hand;
+export default Hand;
